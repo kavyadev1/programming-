@@ -1,15 +1,18 @@
 <html>
+    <!--
+Prompt the user to enter the weight of their baggage, and alert them if it exceeds the limit of 15kg.
+    -->
     <head>
         <script>
-        let doIt = () => {
+            let doIt= () => {
+                inputText=document.getElementById("userInput").value;
+                alert(Number(inputText)+1);
+            }
 
-            inputText = document.getElementById("UserInput").value;
-            alert(inputText);
-        }
-    </script>
+        </script>
     </head>
     <body>
-        <input type=""text" id=""UserInput">
-        <button onclick=""doIt()">check</button>"
+        <input type="text" id="userInput">
+        <button onclick="doIt()">Press Me!</button>
     </body>
 </html>
