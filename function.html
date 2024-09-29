@@ -20,6 +20,8 @@
 
     <button onclick="calculateMultiples()">Calculate Sum</button>
 
+    <h2 id="result"></h2> <!-- This will display the result -->
+
     <script>
         // Function to calculate the sum of all multiples of a or b below n
         function sumOfMultiples(a, b, n) {
@@ -35,3 +37,22 @@
         // Function to capture user input and display the result
         function calculateMultiples() {
             // Get user input values
+            const a = parseInt(document.getElementById('inputA').value);
+            const b = parseInt(document.getElementById('inputB').value);
+            const n = parseInt(document.getElementById('inputN').value);
+
+            // Validate inputs
+            if (isNaN(a) || isNaN(b) || isNaN(n) || n <= 0) {
+                document.getElementById('result').innerText = "Please enter valid positive numbers for a, b, and n.";
+                return;
+            }
+
+            // Calculate the sum of multiples
+            const sum = sumOfMultiples(a, b, n);
+
+            // Display the result
+            document.getElementById('result').innerText = `The sum of multiples of ${a} and ${b} below ${n} is ${sum}.`;
+        }
+    </script>
+</body>
+</html>
