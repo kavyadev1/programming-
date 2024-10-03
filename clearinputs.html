@@ -1,25 +1,19 @@
 <html>
     <head>
         <script>
-            // Function to calculate the sum of multiples of 'a' and 'b' below 'n'
+
             function sum(a, b, n) {
                 let s = 0;
                 for (let i = 1; i < n; i++) {
                     if (i % a == 0 || i % b == 0) {
                         s += i;
                     }
-                  //  alert("The sum is " + s);
+
                 }
-
-                // Update the result div with the sum
+                
                 alert("The sum is " + s);
-               // document.getElementById('result').innerHTML = "The sum is: " + s;
-
-                // Show the result div
                 document.getElementById('result').style.display = 'block';
             }
-
-            // Function to get values from inputs, calculate the sum, and clear inputs after submission
             function GetValues() {
                 let num1 = document.getElementById("num1").value;
                 let num2 = document.getElementById("num2").value;
@@ -30,10 +24,8 @@
                     return;
                 }
 
-                // Call the sum function
+                
                 sum(num1, num2, limit);
-
-                // Clear the input fields
                 document.getElementById("num1").value = '';
                 document.getElementById("num2").value = '';
                 document.getElementById("limit").value = '';
@@ -52,8 +44,6 @@
         <input type="number" id="limit"><br><br>
 
         <button onclick="GetValues()">Submit</button>
-
-        <!-- Result will be displayed here -->
         <div id="result" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
     </body>
 </html>
