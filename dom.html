@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script>
+            // Function to calculate the sum of multiples of 'a' and 'b' below 'n'
+            function sum(a, b, n) {
+                let s = 0;
+                for (let i = 1; i < n; i++) {
+                    if (i % a == 0 || i % b == 0)
+                        s += i;
+                }
+                // Display the result in the 'result' div
+                document.getElementById('result').innerHTML = "The sum is: " + s;
+                // Show the result div
+                document.getElementById('result').style.display = 'block';
+            }
+
+            // Function to retrieve input values and handle the form submission
+            function GetValues() {
+                let num1 = parseInt(document.getElementById("num1").value);
+                let num2 = parseInt(document.getElementById("num2").value);
+                let limit = parseInt(document.getElementById("limit").value);
+
+                if (isNaN(num1) || isNaN(num2) || isNaN(limit)) {
+                    alert("Please enter valid numbers.");
+                    return;
+                }
+
+                // Hide the input fields and button after the calculation
+                document.getElementById("input-section").style.display = 'none';
+
+                // Call the sum function to calculate and display the result
+                sum(num1, num2, limit);
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Sum of Multiples</h2>
+        <div id="input-section">
+            <label for="num1">Enter First Number</label>&nbsp;
+            <input type="number" id="num1"><br><br>
+
+            <label for="num2">Enter Second Number</label>&nbsp;
+            <input type="number" id="num2"><br><br>
+
+            <label for="limit">Enter Limit</label>&nbsp;
+            <input type="number" id="limit"><br><br>
+
+            <button onclick="GetValues()">Submit</button>
+        </div>
+
+        <!-- Result will be displayed here -->
+        <div id="result" style="display:none; margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+    </body>
+</html>
