@@ -1,58 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sum of Multiples</title>
-</head>
-<body>
-    <h1>Find Sum of Multiples</h1>
-    
-    <!-- Input fields for a, b, and n -->
-    <label for="inputA">Enter a:</label>
-    <input type="number" id="inputA"><br><br>
-
-    <label for="inputB">Enter b:</label>
-    <input type="number" id="inputB"><br><br>
-
-    <label for="inputN">Enter n (limit):</label>
-    <input type="number" id="inputN"><br><br>
-
-    <button onclick="calculateMultiples()">Calculate Sum</button>
-
-    <h2 id="result"></h2> <!-- This will display the result -->
-
-    <script>
-        // Function to calculate the sum of all multiples of a or b below n
-        function sumOfMultiples(a, b, n) {
-            let sum = 0;
-            for (let i = 1; i < n; i++) {
-                if (i % a === 0 || i % b === 0) {
-                    sum += i;
+<html>
+    <head>
+        <script>
+            function sum(a, b, n) {
+                s = 0;
+                for (i = 1; i < n; i++) {
+                    if (i % a == 0 || i % b == 0)
+                        s += i;
                 }
-            }
-            alert("sum is" +sum );
-        }
-
-        // Function to capture user input and display the result
-        function calculateMultiples() {
-            // Get user input values
-            const a = parseInt(document.getElementById('inputA').value);
-            const b = parseInt(document.getElementById('inputB').value);
-            const n = parseInt(document.getElementById('inputN').value);
-
-            // Validate inputs
-            if (isNaN(a) || isNaN(b) || isNaN(n) || n <= 0) {
-                document.getElementById('result').innerText = "Please enter valid positive numbers for a, b, and n.";
-                return;
+                alert("The sum is " + s);
             }
 
-            // Calculate the sum of multiples
-            const sum = sumOfMultiples(a, b, n);
-
-            // Display the result
-            document.getElementById('result').innerText = `The sum of multiples of ${a} and ${b} below ${n} is ${sum}.`;
-        }
-    </script>
-</body>
+            function GetValues() {
+                num1 = document.getElementById("num1").value;
+                num2 = document.getElementById("num2").value;
+                limit = document.getElementById("limit").value;
+                sum(num1, num2, limit);
+            }
+        </script>
+    </head>
+    <body>
+        <label for="num1">Enter First Number</label>&nbsp;
+        <input type="number" id="num1" for="num1"><br><br>
+        <label for="num2">Enter Second Number</label>&nbsp;
+        <input type="number" id="num2" for="num2"><br><br>
+        <label for="limit">Enter Limit</label>&nbsp;
+        <input type="number" id="limit" for="limit"><br><br>
+        <button onclick="GetValues()">Submit</button>
+    </body>
 </html>
