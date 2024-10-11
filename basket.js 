@@ -1,5 +1,3 @@
- 
-alert("Loaded Basket JS");
 
 let basketCost = (basket, prices) => {
     let totalCost = 0;
@@ -23,4 +21,4 @@ let prices = {
     "orange": 8
 };
 
-alert(basketCost(basket, prices)); // Output: 46
+alert(basketCost(basket, prices));
