@@ -50,7 +50,7 @@
                     'orange': 5
                 };
 
-                // Prices: Products with their respective prices
+                
                 const prices = {
                     'apple': 0.5,
                     'banana': 0.75,
@@ -59,7 +59,7 @@
 
                 let totalCost = 0;
 
-                // Calculate total cost
+            
                 for (const product in basket) {
                     if (prices.hasOwnProperty(product)) {
                         totalCost += basket[product] * prices[product];
@@ -67,8 +67,6 @@
                         console.log(`Price for ${product} not found.`);
                     }
                 }
-
-                // Display total cost in the div
                 document.getElementById('totalCost').textContent = `Total cost: $${totalCost.toFixed(2)}`;
             }
         });
