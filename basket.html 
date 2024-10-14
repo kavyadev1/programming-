@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket Total Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        button:hover {button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Basket Total Calculator</h2>
+   
+    <p>Click the button to calculate the total cost of your basket.</p>
+   
+    <button id="calcButton">Calculate Total</button>
+
+    <div class="result" id="totalCost"></div>
+
+    <script>
+        // Wrapping the script inside a DOMContentLoaded event ensures
+        // that the function is available only after the DOM is fully loaded.
+        document.addEventListener('DOMContentLoaded', function() {
+            // Attach event listener to button after DOM is loaded
+            document.getElementById('calcButton').addEventListener('click', calculateTotal);
+
+            function calculateTotal() {
+                // Basket: Products with quantities
+                const basket = {
+                    'apple': 3,
+                    'banana': 2,
+                    'orange': 5
+                };
+
+                // Prices: Products with their respective prices
+                const prices = {
+                    'apple': 0.5,
+                    'banana': 0.75,
+                    'orange': 0.65
+                };
+
+                let totalCost = 0;
+
+                // Calculate total cost
+                for (const product in basket) {
+                    if (prices.hasOwnProperty(product)) {
+                        totalCost += basket[product] * prices[product];
+                    } else {
+                        console.log(`Price for ${product} not found.`);
+                    }
+                }
+
+                // Display total cost in the div
+                document.getElementById('totalCost').textContent = `Total cost: $${totalCost.toFixed(2)}`;
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
